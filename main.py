@@ -7,26 +7,17 @@ text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
 
-def encrypt(text, shift):
-    encrypted_word = ""
+def caesar(text, shift, direction):
+    final_text = ""
+    if direction == "decode":
+        shift *= -1
     for letter in text:
         letter_index = alphabet.index(letter)
         shifted_letter = alphabet[letter_index + shift]
-        encrypted_word += shifted_letter
-    print(encrypted_word)
-
-def decrypt(text, shift):
-    decrypted_word = ""
-    for letter in text:
-        letter_index = alphabet.index(letter)
-        shifted_letter = alphabet[letter_index - shift]
-        decrypted_word += shifted_letter
-    print(decrypted_word)
+        final_text += shifted_letter
+    print(f"The {direction}d text is {final_text}")
 
 
-if direction == "encode":
-    encrypt(text=text, shift=shift)
-elif direction == "decode":
-    decrypt(text=text, shift=shift)
+caesar(text=text, shift=shift, direction=direction)
 
 
