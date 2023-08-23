@@ -15,5 +15,18 @@ def encrypt(text, shift):
         encrypted_word += shifted_letter
     print(encrypted_word)
 
+def decrypt(text, shift):
+    decrypted_word = ""
+    for letter in text:
+        letter_index = alphabet.index(letter)
+        shifted_letter = alphabet[letter_index - shift]
+        decrypted_word += shifted_letter
+    print(decrypted_word)
 
-encrypt(text=text, shift=shift)
+
+if direction == "encode":
+    encrypt(text=text, shift=shift)
+elif direction == "decode":
+    decrypt(text=text, shift=shift)
+
+
